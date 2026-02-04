@@ -1,3 +1,5 @@
+import './modelCard.css';
+
 export default function ModelCard({ data }) {
   const { brand, profileCard, measurements, contact, stats } = data;
 
@@ -16,11 +18,7 @@ export default function ModelCard({ data }) {
         </div>
 
         <div className="printPhotoWrap">
-          <img
-            className="printPhoto"
-            src={profileCard.image}
-            alt={brand.name}
-          />
+          <img className="printPhoto" src={profileCard.image} alt={brand.name} />
         </div>
       </header>
 
@@ -51,14 +49,12 @@ export default function ModelCard({ data }) {
         <div className="printBlock">
           <div className="printBlockTitle">Roles</div>
           <div className="printBadges">
-            {[...(brand.affiliations || []), ...(brand.roles || [])].map(
-              (b, i) => (
-                <span key={i} className="printBadge">
-                  <span className="printBadgeIcon">{b.icon}</span>
-                  {b.label}
-                </span>
-              ),
-            )}
+            {[...(brand.affiliations || []), ...(brand.roles || [])].map((b, i) => (
+              <span key={i} className="printBadge">
+                <span className="printBadgeIcon">{b.icon}</span>
+                {b.label}
+              </span>
+            ))}
           </div>
         </div>
 
@@ -79,7 +75,7 @@ export default function ModelCard({ data }) {
             {stats?.map((s, i) => (
               <span key={s.label}>
                 <b>{s.value}</b> {s.label}
-                {i < stats.length - 1 ? " · " : ""}
+                {i < stats.length - 1 ? ' · ' : ''}
               </span>
             ))}
           </div>

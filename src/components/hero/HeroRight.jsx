@@ -26,10 +26,7 @@ export default function HeroRight({ data }) {
         <a className="contactLink" href={`mailto:${contact.email}`}>
           {contact.email}
         </a>
-        <a
-          className="contactLink"
-          href={`tel:${contact.phone.replace(/\D/g, "")}`}
-        >
+        <a className="contactLink" href={`tel:${contact.phone.replace(/\D/g, '')}`}>
           {contact.phone}
         </a>
       </div>

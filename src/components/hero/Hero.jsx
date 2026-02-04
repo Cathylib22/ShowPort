@@ -1,7 +1,7 @@
-import HeroLeftCard from "./HeroLeftCard";
-import HeroCenter from "./HeroCenter";
-import HeroRight from "./HeroRight";
-import { profileData } from "../../data/profileData.js";
+import HeroLeftCard from './HeroLeftCard';
+import HeroCenter from './HeroCenter';
+import HeroRight from './HeroRight';
+import { profileData } from '../../data/profileData.js';
 
 export default function Hero() {
   return (

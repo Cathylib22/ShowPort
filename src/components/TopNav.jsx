@@ -1,7 +1,7 @@
 // @ts-nocheck
-import { profileData } from "../data/profileData";
-import BrandBlock from "./BrandBlock";
-import LogoMark from "./LogoMark";
+import { profileData } from '../data/profileData';
+import BrandBlock from './BrandBlock';
+import LogoMark from './LogoMark';
 
 export default function TopNav() {
   return (

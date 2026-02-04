@@ -1,11 +1,11 @@
 export default function SeoJsonLd({ data }) {
   const { brand, contact } = data;
 
-  const cityStateCountry = brand.location?.label || "United States";
+  const cityStateCountry = brand.location?.label || 'United States';
 
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
+    '@context': 'https://schema.org',
+    '@type': 'Person',
     name: brand.name,
     jobTitle: brand.title,
     description: brand.intro,
@@ -13,15 +13,15 @@ export default function SeoJsonLd({ data }) {
     telephone: contact.phone || undefined,
 
     address: {
-      "@type": "PostalAddress",
-      addressLocality: "Newport Beach",
-      addressRegion: "CA",
-      addressCountry: "US",
+      '@type': 'PostalAddress',
+      addressLocality: 'Newport Beach',
+      addressRegion: 'CA',
+      addressCountry: 'US',
     },
 
     worksFor: [
-      { "@type": "Organization", name: "CalcSim" },
-      { "@type": "Organization", name: "Freelancer" },
+      { '@type': 'Organization', name: 'CalcSim' },
+      { '@type': 'Organization', name: 'Freelancer' },
     ],
 
     sameAs: (brand.profiles || []).map((p) => p.url).filter(Boolean),

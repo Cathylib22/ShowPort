@@ -1,5 +1,5 @@
 // @ts-nocheck
-import BrandBlock from "../BrandBlock";
+import BrandBlock from '../BrandBlock';
 
 export default function HeroCenter({ data }) {
   const { brand, stats } = data;

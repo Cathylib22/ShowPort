@@ -1,22 +1,22 @@
 // @ts-nocheck
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from 'react';
 
 function useIsMobile(breakpointPx = 640) {
   const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" ? window.innerWidth <= breakpointPx : false,
+    typeof window !== 'undefined' ? window.innerWidth <= breakpointPx : false
   );
 
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth <= breakpointPx);
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, [breakpointPx]);
 
   return isMobile;
 }
 
 export default function BrandBlock({
-  name = "Catherine Young",
+  name = 'Catherine Young',
   title,
   intro,
   subtitle,
@@ -26,61 +26,58 @@ export default function BrandBlock({
 
   /* LOGO */
   logoSrc,
-  logoAlt = "Logo",
+  logoAlt = 'Logo',
   logoNode, // ✅ NEW: React node (SVG component, JSX, etc.)
 
   /* STATS */
   stats,
   showStats = true,
-  statsLayout = "inline", // "inline" | "card" | "pill"
+  statsLayout = 'inline', // "inline" | "card" | "pill"
 
   /* LAYOUT */
-  align = "center",
-  variant = "hero",
+  align = 'center',
+  variant = 'hero',
   size,
 
   /* COMPACT */
-  compact = "auto",
+  compact = 'auto',
   compactBreakpoint = 640,
   compactHideSubtitle = true,
   compactHideStats = false,
 }) {
   const isMobile = useIsMobile(compactBreakpoint);
-  const isCompact = compact === "auto" ? isMobile : Boolean(compact);
+  const isCompact = compact === 'auto' ? isMobile : Boolean(compact);
 
   const resolvedSize = useMemo(() => {
     if (size) return size;
-    if (variant === "nav") return "sm";
-    if (variant === "footer") return "md";
-    return "xl";
+    if (variant === 'nav') return 'sm';
+    if (variant === 'footer') return 'md';
+    return 'xl';
   }, [size, variant]);
 
   const finalSize = isCompact
-    ? resolvedSize === "xl"
-      ? "lg"
-      : resolvedSize === "lg"
-        ? "md"
-        : "sm"
+    ? resolvedSize === 'xl'
+      ? 'lg'
+      : resolvedSize === 'lg'
+        ? 'md'
+        : 'sm'
     : resolvedSize;
 
   const hasStats =
-    showStats &&
-    Array.isArray(stats) &&
-    stats.length > 0 &&
-    !(isCompact && compactHideStats);
+    showStats && Array.isArray(stats) && stats.length > 0 && !(isCompact && compactHideStats);
 
   const finalSubtitle = isCompact && compactHideSubtitle ? null : subtitle;
 
   return (
     <div
       className={[
-        "brandBlock",
+        'brandBlock',
         `align-${align}`,
         `variant-${variant}`,
         `size-${finalSize}`,
         `stats-${statsLayout}`,
-        isCompact ? "is-compact" : "",
-      ].join(" ")}
+        isCompact ? 'is-compact' : '',
+      ].join(' ')}
     >
       <div className="brandHeader">
         {logoNode ? (
@@ -93,9 +90,7 @@ export default function BrandBlock({
           <div className="brandTitle">{name}</div>
           {title && <div className="brandRole">{title}</div>}
 
-          {finalSubtitle && (
-            <div className="brandSubtitle">{finalSubtitle}</div>
-          )}
+          {finalSubtitle && <div className="brandSubtitle">{finalSubtitle}</div>}
         </div>
       </div>
       {/* Intro */}
@@ -105,7 +100,7 @@ export default function BrandBlock({
       {Array.isArray(badges) && badges.length > 0 && (
         <div className="brandBadges">
           {badges.map((b, i) => (
-            <span key={i} className={`badge badge-${b.type || "default"}`}>
+            <span key={i} className={`badge badge-${b.type || 'default'}`}>
               <span className="badgeIcon">{b.icon}</span>
               {b.label}
             </span>
@@ -121,7 +116,7 @@ export default function BrandBlock({
         </div>
       )}
 
-      {hasStats && statsLayout === "inline" && (
+      {hasStats && statsLayout === 'inline' && (
         <div className="brandStatsInline">
           {stats.map((s, i) => (
             <span key={s.label}>
@@ -132,7 +127,7 @@ export default function BrandBlock({
         </div>
       )}
 
-      {hasStats && statsLayout !== "inline" && (
+      {hasStats && statsLayout !== 'inline' && (
         <div className="brandStats">
           {stats.map((s, idx) => (
             <div className="brandStat" key={`${s.label}-${idx}`}>
