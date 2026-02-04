@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useMemo, useState } from "react";
 
 function useIsMobile(breakpointPx = 640) {
@@ -16,7 +17,12 @@ function useIsMobile(breakpointPx = 640) {
 
 export default function BrandBlock({
   name = "Catherine Young",
+  title,
+  intro,
   subtitle,
+  badges = [],
+
+  location,
 
   /* LOGO */
   logoSrc,
@@ -85,11 +91,35 @@ export default function BrandBlock({
 
         <div className="brandText">
           <div className="brandTitle">{name}</div>
+          {title && <div className="brandRole">{title}</div>}
+
           {finalSubtitle && (
             <div className="brandSubtitle">{finalSubtitle}</div>
           )}
         </div>
       </div>
+      {/* Intro */}
+      {intro && <div className="brandIntro">{intro}</div>}
+
+      {/* Role / Affiliation badges */}
+      {Array.isArray(badges) && badges.length > 0 && (
+        <div className="brandBadges">
+          {badges.map((b, i) => (
+            <span key={i} className={`badge badge-${b.type || "default"}`}>
+              <span className="badgeIcon">{b.icon}</span>
+              {b.label}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Location */}
+      {location && (
+        <div className="brandLocation">
+          <span className="badgeIcon">{location.icon}</span>
+          {location.label}
+        </div>
+      )}
 
       {hasStats && statsLayout === "inline" && (
         <div className="brandStatsInline">

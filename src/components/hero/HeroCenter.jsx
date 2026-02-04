@@ -1,3 +1,4 @@
+// @ts-nocheck
 import BrandBlock from "../BrandBlock";
 
 export default function HeroCenter({ data }) {
@@ -9,12 +10,14 @@ export default function HeroCenter({ data }) {
         variant="hero"
         align="center"
         name={brand.name}
-        subtitle={brand.subtitle}
+        title={brand.title}
+        intro={brand.intro}
+        badges={[...brand.affiliations, ...brand.roles]}
+        location={brand.location}
         stats={stats}
-        statsStyle="card"
+        statsLayout="inline"
         compact="auto"
-        compactStatsStyle="pill"
-        compactHideSubtitle={true}
+        compactHideStats={false}
       />
     </div>
   );

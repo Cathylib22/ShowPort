@@ -194,6 +194,44 @@ body {
   justify-content: inherit; /* follows align-* */
 }
 
+/* ---------- BrandBlock inline stats ---------- */
+.brandStatsInline {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+}
+
+.brandStatsInline strong {
+  color: var(--text);
+  font-weight: 900;
+}
+
+.brandStatsInline .dot {
+  opacity: 0.5;
+}
+
+/* compact tweak */
+.brandBlock.is-compact .brandStatsInline {
+  font-size: 14px;
+}
+
+/* ---------- Custom logo node ---------- */
+.brandLogoNode {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandLogoNode svg {
+  width: 42px;
+  height: 42px;
+}
+
+.variant-nav .brandLogoNode svg {
+  width: 34px;
+  height: 34px;
+}
 /* stats: card style (like your current white stats box) */
 .stats-card .brandStats {
   background: rgba(255, 255, 255, 0.88);
@@ -202,6 +240,50 @@ body {
   padding: 10px 14px;
   width: fit-content;
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+.brandRole {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.brandIntro {
+  max-width: 520px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.brandBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.badgeIcon {
+  font-size: 14px;
+}
+
+.brandLocation {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .stats-card .brandStat {

@@ -1,5 +1,7 @@
+// @ts-nocheck
 import { profileData } from "../data/profileData";
 import BrandBlock from "./BrandBlock";
+import LogoMark from "./LogoMark";
 
 export default function TopNav() {
   return (
@@ -7,6 +9,7 @@ export default function TopNav() {
       <BrandBlock
         variant="nav"
         align="left"
+        logoNode={<LogoMark />}
         logoSrc={profileData.brand.logo}
         name={profileData.brand.name}
         showStats={false}
